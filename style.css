@@ -1,0 +1,603 @@
+  :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --accent-color: #3498db;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --text-light: #7f8c8d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      color: var(--text-color);
+      scroll-behavior: smooth;
+    }
+    
+    .navbar {
+      background-color: var(--primary-color);
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-brand {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar-brand:hover {
+      color: var(--secondary-color);
+    }
+    
+    .nav-link {
+      color: white;
+      margin: 0 0.5rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: var(--secondary-color);
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--secondary-color);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+    
+    .dropdown-menu {
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 0;
+    }
+    
+    .dropdown-item {
+      color: white;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .dropdown-item:hover {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+    
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                  url('https://cdn.glitch.global/dcd6fc38-4d26-4659-b9fa-374414801641/sripada.png?v=1720353330581') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding-top: 80px;
+    }
+    
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-family: 'Playwrite NG Modern', cursive;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      animation: fadeInDown 1s ease;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      font-family: 'Pacifico', cursive;
+      animation: fadeInUp 1s ease;
+    }
+    
+    .btn-explore {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      animation: fadeIn 1.5s ease;
+    }
+    
+    .btn-explore:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .gallery {
+      padding: 5rem 0;
+      background-color: white;
+    }
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+    
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      color: white;
+      padding: 1.5rem;
+      transform: translateY(100%);
+      transition: all 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+    
+    .places-section {
+      padding: 5rem 0;
+      background-color: #f9f9f9;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-family: 'Playwrite NG Modern', cursive;
+      color: var(--primary-color);
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .place-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .place-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .place-img {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .place-body {
+      padding: 1.5rem;
+    }
+    
+    .place-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      font-family: 'Kalam', cursive;
+    }
+    
+    .place-text {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+    
+    .btn-more {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-more:hover {
+      background-color: #2980b9;
+      transform: translateY(-3px);
+    }
+    
+    .stats-section {
+      padding: 5rem 0;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                  url('https://cdn.glitch.global/dcd6fc38-4d26-4659-b9fa-374414801641/mine.png?v=1720355674425') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+    }
+    
+    .stat-item {
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--secondary-color);
+    }
+    
+    .stat-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    
+    .map-section {
+      padding: 5rem 0;
+      background-color: white;
+    }
+    
+    .map-container {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      height: 500px;
+    }
+    
+    .climate-section {
+      padding: 5rem 0;
+      background-color: #f9f9f9;
+    }
+    
+    .climate-chart {
+      background-color: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .hotels-section {
+      padding: 5rem 0;
+      background-color: white;
+    }
+    
+    .hotel-card {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .hotel-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .hotel-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .hotel-body {
+      padding: 1.5rem;
+    }
+    
+    .hotel-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    
+    .hotel-rating {
+      color: #f39c12;
+      margin-bottom: 0.5rem;
+    }
+    
+    .btn-book {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-book:hover {
+      background-color: #c0392b;
+    }
+    
+    .subscribe-section {
+      padding: 5rem 0;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                  url('https://cdn.glitch.global/dcd6fc38-4d26-4659-b9fa-374414801641/singharaja.jpg?v=1720357062961') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+    }
+    
+    .subscribe-title {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-family: 'Pacifico', cursive;
+    }
+    
+    .subscribe-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .form-control {
+      padding: 1rem;
+      border-radius: 50px;
+      border: none;
+      margin-bottom: 1rem;
+    }
+    
+    .btn-subscribe {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-subscribe:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+    }
+    
+    .footer {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+    
+    .footer-logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+    
+    .footer-links h5 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .footer-links h5::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 2px;
+      background-color: var(--secondary-color);
+      bottom: -10px;
+      left: 0;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: var(--light-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--secondary-color);
+      padding-left: 5px;
+    }
+    
+    .social-icons {
+      margin-top: 1.5rem;
+    }
+    
+    .social-icons a {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255,255,255,0.1);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 40px;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--light-color);
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--secondary-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+    
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .back-to-top:hover {
+      background-color: #c0392b;
+      transform: translateY(-5px);
+    }
+    
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 1rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .place-title, .hotel-title {
+        font-size: 1.3rem;
+      }
+      
+      .subscribe-title {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .section-title {
+        font-size: 1.5rem;
+      }
+      
+      .stat-number {
+        font-size: 2.5rem;
+      }
+      
+      .subscribe-title {
+        font-size: 1.8rem;
+      }
+      
+      .footer-logo {
+        font-size: 1.8rem;
+      }
+    }
